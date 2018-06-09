@@ -1,7 +1,6 @@
 package br.edu.tasima.pda.b.alerts;
 
 import br.edu.tasima.pda.b.alerts.services.Receiver;
-import br.edu.tasima.pda.b.alerts.services.Receiver;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.Queue;

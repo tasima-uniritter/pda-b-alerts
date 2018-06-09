@@ -1,6 +1,4 @@
-package br.edu.tasima.pda.b.alerts.services
-
--pda.b.alerts.services;
+package br.edu.tasima.pda.b.alerts.services;
 
 import org.springframework.stereotype.Component;
 
