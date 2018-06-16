@@ -1,9 +1,6 @@
-package br.edu.tasima.pda.b.alerts.entities;
+package br.edu.tasima.pda.b.alerts.domain;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -12,7 +9,7 @@ import javax.persistence.*;
  *
  * @author <a href="mailto:alexsros@gmail.com">Alex S. Rosa</a>
  * @since 10/06/2018 21:05:00
- *
+ * <p>
  * | ENGINEER                              |
  * | ------------------------------------- |
  * | ENGINEER_ID PK BIGINT - e.g 54321     |
@@ -20,17 +17,14 @@ import javax.persistence.*;
  * | NAME VARCHAR - e.g Neymar Júnior      |
  * | EMAIL VARCHAR - e.g njr10@gmail.com   |
  */
-@Getter
-@Setter
-@ToString
-@EqualsAndHashCode
+@Data
 @Entity
 public class Engineer {
 
     @Id
-    @SequenceGenerator(name = "seq_enginner", sequenceName = "seq_enginner", allocationSize = 1)
-    @GeneratedValue(generator = "seq_enginner")
-    private Integer enginnerId;
+    @SequenceGenerator(name = "SEQ_ENGINEER", sequenceName = "SEQ_ENGINEER", allocationSize = 1)
+    @GeneratedValue(generator = "SEQ_ENGINEER")
+    private Integer engineerId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Team team;

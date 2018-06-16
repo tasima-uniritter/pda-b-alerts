@@ -1,6 +1,5 @@
-package br.edu.tasima.pda.b.alerts.services;
+package br.edu.tasima.pda.b.alerts.service.mq;
 
-import br.edu.tasima.pda.b.alerts.AlertsApplication;
 import br.edu.tasima.pda.b.alerts.configuration.AlertConfig;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.boot.CommandLineRunner;

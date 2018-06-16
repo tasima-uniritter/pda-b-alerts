@@ -1,9 +1,6 @@
-package br.edu.tasima.pda.b.alerts.entities;
+package br.edu.tasima.pda.b.alerts.domain;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -26,10 +23,7 @@ import java.util.List;
  * | METRIC_TIMESTAMP TIMESTAMP - e.g 1234567  |
  * | METRIC_THRESHOLD BIGINT - e.g 500         |
  */
-@Getter
-@Setter
-@ToString
-@EqualsAndHashCode
+@Data
 @Entity
 public class Metric {
 

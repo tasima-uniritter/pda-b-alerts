@@ -1,9 +1,6 @@
-package br.edu.tasima.pda.b.alerts.entities;
+package br.edu.tasima.pda.b.alerts.domain;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -14,7 +11,7 @@ import java.time.LocalDateTime;
  *
  * @author <a href="mailto:alexsros@gmail.com">Alex S. Rosa</a>
  * @since 10/06/2018 21:05:00
- *
+ * <p>
  * | AGENDA                                |
  * | ------------------------------------- |
  * | AGENDA_ID PK BIGINT - e.g 11111       |
@@ -24,16 +21,13 @@ import java.time.LocalDateTime;
  * | END_TIME TIME - e.g 18:00             |
  * \*** AGENDA_ID + ENGINEER_ID + WEEK_DAY = UNIQUE KEY
  */
-@Getter
-@Setter
-@ToString
-@EqualsAndHashCode
+@Data
 @Entity
 public class Agenda {
 
     @Id
-    @SequenceGenerator(name = "seq_agenda", sequenceName = "seq_agenda", allocationSize = 1)
-    @GeneratedValue(generator = "seq_agenda")
+    @SequenceGenerator(name = "SEQ_AGENDA", sequenceName = "SEQ_AGENDA", allocationSize = 1)
+    @GeneratedValue(generator = "SEQ_AGENDA")
     private Integer agendaId;
 
     @ManyToOne(fetch = FetchType.LAZY)

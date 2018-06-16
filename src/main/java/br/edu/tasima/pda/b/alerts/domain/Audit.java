@@ -1,9 +1,6 @@
-package br.edu.tasima.pda.b.alerts.entities;
+package br.edu.tasima.pda.b.alerts.domain;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -13,7 +10,7 @@ import java.time.LocalDateTime;
  *
  * @author <a href="mailto:alexsros@gmail.com">Alex S. Rosa</a>
  * @since 10/06/2018 21:05:00
- *
+ * <p>
  * | AUDIT                                         |
  * | --------------------------------------        |
  * | AUDIT_ID PK BIGINT - e.g 22222                |
@@ -24,20 +21,17 @@ import java.time.LocalDateTime;
  * | STATUS VARCHAR - e.g SUCCESS/FAILURE          |
  * | MESSAGE VARCHAR - e.g Error line 123 bla bla  |
  */
-@Getter
-@Setter
-@ToString
-@EqualsAndHashCode
+@Data
 @Entity
 public class Audit {
 
     @Id
-    @SequenceGenerator(name = "seq_audit", sequenceName = "seq_audit", allocationSize = 1)
-    @GeneratedValue(generator = "seq_audit")
+    @SequenceGenerator(name = "SEQ_AUDIT", sequenceName = "SEQ_AUDIT", allocationSize = 1)
+    @GeneratedValue(generator = "SEQ_AUDIT")
     private Integer auditId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Metric matric;
+    private Metric metric;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Team team;
