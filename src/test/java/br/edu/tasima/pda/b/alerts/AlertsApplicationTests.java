@@ -1,4 +1,4 @@
-package br.edu.tasima.pda.b.alerts.service;
+package br.edu.tasima.pda.b.alerts;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

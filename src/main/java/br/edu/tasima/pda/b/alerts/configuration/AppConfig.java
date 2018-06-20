@@ -1,6 +1,6 @@
 package br.edu.tasima.pda.b.alerts.configuration;
 
-import br.edu.tasima.pda.b.alerts.service.mq.Receiver;
+import br.edu.tasima.pda.b.alerts.api.v1.notify.mq.Receiver;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.Queue;
@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class AlertConfig {
+public class AppConfig {
     public static final String TOPIC_EXCHANGE_NAME = "spring-boot-exchange";
 
     private static final String QUEUE_NAME = "spring-boot";

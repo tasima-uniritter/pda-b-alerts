@@ -1,6 +1,6 @@
-package br.edu.tasima.pda.b.alerts.service.mq;
+package br.edu.tasima.pda.b.alerts.api.v1.notify.mq;
 
-import br.edu.tasima.pda.b.alerts.configuration.AlertConfig;
+import br.edu.tasima.pda.b.alerts.configuration.AppConfig;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -21,7 +21,7 @@ public class Runner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         System.out.println("Sending message...");
-        rabbitTemplate.convertAndSend(AlertConfig.TOPIC_EXCHANGE_NAME, "foo.bar.baz", "Hello from RabbitMQ!");
+        rabbitTemplate.convertAndSend(AppConfig.TOPIC_EXCHANGE_NAME, "foo.bar.baz", "Hello from RabbitMQ!");
         receiver.getLatch().await(10000, TimeUnit.MILLISECONDS);
     }
 
