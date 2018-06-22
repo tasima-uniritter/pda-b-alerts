@@ -1,4 +1,4 @@
-package br.edu.tasima.pda.b.alerts.api.v1.notify.model;
+package br.edu.tasima.pda.b.alerts.api.notify.model;
 
 import lombok.Data;
 

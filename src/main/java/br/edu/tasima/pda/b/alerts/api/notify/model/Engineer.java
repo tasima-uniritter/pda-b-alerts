@@ -1,6 +1,7 @@
-package br.edu.tasima.pda.b.alerts.api.v1.notify.model;
+package br.edu.tasima.pda.b.alerts.api.notify.model;
 
-import br.edu.tasima.pda.b.alerts.api.v1.notify.serializer.TeamSerializer;
+import br.edu.tasima.pda.b.alerts.api.notify.serializer.TeamSerializer;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
 
@@ -23,6 +24,7 @@ import java.util.List;
  */
 @Data
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name = "ENGINEER")
 public class Engineer {
 
@@ -45,5 +47,5 @@ public class Engineer {
     private String email;
 
     @OneToMany(mappedBy = "engineer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Agenda> agenda;
+    private List<Agenda> engineerAgenda;
 }

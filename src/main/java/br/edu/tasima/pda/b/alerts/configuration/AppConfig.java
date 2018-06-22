@@ -1,6 +1,6 @@
 package br.edu.tasima.pda.b.alerts.configuration;
 
-import br.edu.tasima.pda.b.alerts.api.v1.notify.mq.Receiver;
+import br.edu.tasima.pda.b.alerts.api.notify.mq.Receiver;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.Queue;

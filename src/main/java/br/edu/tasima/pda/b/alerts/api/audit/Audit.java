@@ -1,8 +1,8 @@
-package br.edu.tasima.pda.b.alerts.api.v1.audit;
+package br.edu.tasima.pda.b.alerts.api.audit;
 
-import br.edu.tasima.pda.b.alerts.api.v1.audit.enums.NotifyStatus;
-import br.edu.tasima.pda.b.alerts.api.v1.notify.model.Engineer;
-import br.edu.tasima.pda.b.alerts.api.v1.notify.model.Team;
+import br.edu.tasima.pda.b.alerts.api.notify.model.Team;
+import br.edu.tasima.pda.b.alerts.api.audit.enums.NotifyStatus;
+import br.edu.tasima.pda.b.alerts.api.notify.model.Engineer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 

@@ -1,6 +1,6 @@
-package br.edu.tasima.pda.b.alerts.api.v1.notify.repository;
+package br.edu.tasima.pda.b.alerts.api.notify.repository;
 
-import br.edu.tasima.pda.b.alerts.api.v1.notify.model.MetricCode;
+import br.edu.tasima.pda.b.alerts.api.notify.model.MetricCode;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

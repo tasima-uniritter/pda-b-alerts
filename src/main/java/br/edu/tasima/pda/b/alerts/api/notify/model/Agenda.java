@@ -1,5 +1,6 @@
-package br.edu.tasima.pda.b.alerts.api.v1.notify.model;
+package br.edu.tasima.pda.b.alerts.api.notify.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -41,6 +42,7 @@ public class Agenda {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long agendaId;
 
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ENGINEER_ID")
     private Engineer engineer;

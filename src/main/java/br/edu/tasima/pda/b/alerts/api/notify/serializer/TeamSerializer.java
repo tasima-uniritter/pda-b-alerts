@@ -1,6 +1,6 @@
-package br.edu.tasima.pda.b.alerts.api.v1.notify.serializer;
+package br.edu.tasima.pda.b.alerts.api.notify.serializer;
 
-import br.edu.tasima.pda.b.alerts.api.v1.notify.model.Team;
+import br.edu.tasima.pda.b.alerts.api.notify.model.Team;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
@@ -23,7 +23,7 @@ public class TeamSerializer extends StdSerializer<Team> {
     @Override
     public void serialize(Team value, JsonGenerator gen, SerializerProvider arg2) throws IOException {
         gen.writeStartObject();
-        gen.writeStringField("team", value.getName());
+        gen.writeStringField("name", value.getName());
         gen.writeEndObject();
     }
 }

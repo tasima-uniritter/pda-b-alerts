@@ -1,6 +1,6 @@
-package br.edu.tasima.pda.b.alerts.api.v1.notify.dto;
+package br.edu.tasima.pda.b.alerts.api.notify.dto;
 
-import br.edu.tasima.pda.b.alerts.api.v1.notify.model.MetricCode;
+import br.edu.tasima.pda.b.alerts.api.notify.model.MetricCode;
 import lombok.Data;
 
 import java.time.LocalDateTime;

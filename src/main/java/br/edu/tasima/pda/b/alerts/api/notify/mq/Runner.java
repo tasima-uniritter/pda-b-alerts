@@ -1,4 +1,4 @@
-package br.edu.tasima.pda.b.alerts.api.v1.notify.mq;
+package br.edu.tasima.pda.b.alerts.api.notify.mq;
 
 import br.edu.tasima.pda.b.alerts.configuration.AppConfig;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;

@@ -1,6 +1,6 @@
-package br.edu.tasima.pda.b.alerts.api.v1.notify.serializer;
+package br.edu.tasima.pda.b.alerts.api.notify.serializer;
 
-import br.edu.tasima.pda.b.alerts.api.v1.notify.model.MetricCode;
+import br.edu.tasima.pda.b.alerts.api.notify.model.MetricCode;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;

@@ -1,8 +1,11 @@
-package br.edu.tasima.pda.b.alerts.api.v1.notify.model;
+package br.edu.tasima.pda.b.alerts.api.notify.model;
 
-import br.edu.tasima.pda.b.alerts.api.v1.notify.serializer.MetricCodeSerializer;
+import br.edu.tasima.pda.b.alerts.api.notify.serializer.MetricCodeSerializer;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import java.util.List;
@@ -37,6 +40,8 @@ public class Team {
     @Column(name = "NAME", unique = true)
     private String name;
 
-    @Transient
+    @JsonBackReference
+    @Fetch(FetchMode.SELECT)
+    @OneToMany(mappedBy = "team", fetch = FetchType.LAZY)
     private List<Engineer> engineers;
 }
