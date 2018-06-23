@@ -1,7 +1,9 @@
 package br.edu.tasima.pda.b.alerts.api.notify.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -21,6 +23,8 @@ import javax.validation.constraints.NotNull;
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name = "METRIC_CODE")
+@AllArgsConstructor
+@NoArgsConstructor
 public class MetricCode {
 
     @Id
