@@ -3,7 +3,7 @@ Alex Silveira
 Lucas Gentile  
 Gelson Gonçalves  
 Tiago Xavier  
-Vinicius  
+Vinicius Schaarschmidt 
 
 # pda-b-alerts
 
