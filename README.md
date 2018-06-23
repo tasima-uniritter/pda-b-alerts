@@ -1,3 +1,10 @@
+# Grupo:
+Alex Silveira
+Lucas Gentile
+Gelson Gonçalves
+Tiago Xavier
+Vinicius
+
 # pda-b-alerts
 
 Initial commit - Spring Boot + Spring Data + AMQP RabbitMQ + H2 + Lombok + Swagger
