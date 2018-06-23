@@ -1,9 +1,9 @@
-# Grupo:
-Alex Silveira
-Lucas Gentile
-Gelson Gonçalves
-Tiago Xavier
-Vinicius
+#Grupo  
+Alex Silveira  
+Lucas Gentile  
+Gelson Gonçalves  
+Tiago Xavier  
+Vinicius  
 
 # pda-b-alerts
 
