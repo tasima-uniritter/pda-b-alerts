@@ -1,17 +1,16 @@
-#Grupo  
-Alex Silveira  
-Lucas Gentile  
-Gelson Gonçalves  
-Tiago Xavier  
-Vinicius Schaarschmidt 
-
 # pda-b-alerts
 
-Initial commit - Spring Boot + Spring Data + AMQP RabbitMQ + H2 + Lombok + Swagger
+Spring Boot + Spring Data + AMQP RabbitMQ + H2 + Lombok + Swagger
 
-Example: https://spring.io/guides/gs/messaging-rabbitmq/
+## Grupo
 
-#Database Structure
+* Alex Silveira  
+* Lucas Gentile  
+* Gelson Gonçalves  
+* Tiago Xavier  
+* Vinicius Schaarschmidt 
+
+# Database Structure
 
  | TEAM                                          |
  | --------------------------------------------- |
@@ -33,10 +32,10 @@ Example: https://spring.io/guides/gs/messaging-rabbitmq/
 | WEEK_DAY VARCHAR - e.g MONDAY         |
 | START_TIME TIME - e.g 10:00:00        |
 | END_TIME TIME - e.g 18:00:00          |
-######Unique keys
-#####ENGINEER_ID + WEEK_DAY + START_TIME 
-#####ENGINEER_ID + WEEK_DAY + END_TIME
-#####ENGINEER_ID + WEEK_DAY + START_TIME + END_TIME
+###### Unique keys
+##### ENGINEER_ID + WEEK_DAY + START_TIME 
+##### ENGINEER_ID + WEEK_DAY + END_TIME
+##### ENGINEER_ID + WEEK_DAY + START_TIME + END_TIME
 
 | AUDIT                                              |
 | -------------------------------------------------- |
@@ -52,7 +51,7 @@ Example: https://spring.io/guides/gs/messaging-rabbitmq/
 | METRIC_CODE PK VARCHAR - e.g MEMORY_USAGE         |
 | METRIC_CODE_VALUE VARCHAR - e.g Memory Usage      |
 
-##Database example
+## Database example
 ```
 INSERT INTO ENGINEER (NAME, EMAIL) VALUES ('Lucas', 'lucasgpc@gmail.com');
 INSERT INTO ENGINEER (NAME, EMAIL) VALUES ('Gelson', 'gelson@gmail.com');
