@@ -8,6 +8,7 @@ import br.edu.tasima.pda.b.alerts.api.notify.model.Engineer;
 import br.edu.tasima.pda.b.alerts.api.notify.model.MetricCode;
 import br.edu.tasima.pda.b.alerts.api.notify.model.Team;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

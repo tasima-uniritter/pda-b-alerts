@@ -10,6 +10,9 @@ Spring Boot + Spring Data + AMQP RabbitMQ + H2 + Lombok + Swagger
 * Tiago Xavier  
 * Vinicius Schaarschmidt 
 
+#CircleCI
+https://circleci.com/gh/tasima-uniritter/pda-b-alerts
+
 # Database Structure
 
  | TEAM                                          |
