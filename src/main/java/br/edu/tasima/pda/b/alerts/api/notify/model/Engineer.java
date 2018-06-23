@@ -3,7 +3,9 @@ package br.edu.tasima.pda.b.alerts.api.notify.model;
 import br.edu.tasima.pda.b.alerts.api.notify.serializer.TeamSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -26,6 +28,8 @@ import java.util.List;
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name = "ENGINEER")
+@NoArgsConstructor
+@AllArgsConstructor
 public class Engineer {
 
     @Id

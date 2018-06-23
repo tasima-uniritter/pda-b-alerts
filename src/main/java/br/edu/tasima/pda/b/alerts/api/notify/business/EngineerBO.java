@@ -4,6 +4,7 @@ import br.edu.tasima.pda.b.alerts.api.notify.model.Engineer;
 import br.edu.tasima.pda.b.alerts.api.notify.model.Team;
 import br.edu.tasima.pda.b.alerts.api.notify.repository.EngineerRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityNotFoundException;
@@ -12,6 +13,7 @@ import java.util.List;
 @Component
 @AllArgsConstructor
 public class EngineerBO {
+
     private final EngineerRepository engineerRepository;
     private final TeamBO teamBO;
 
