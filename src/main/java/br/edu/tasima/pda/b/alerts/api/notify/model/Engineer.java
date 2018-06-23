@@ -46,6 +46,6 @@ public class Engineer {
     @Column(name = "EMAIL", unique = true)
     private String email;
 
-    @OneToMany(mappedBy = "engineer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "engineer", cascade = CascadeType.ALL)
     private List<Agenda> engineerAgenda;
 }

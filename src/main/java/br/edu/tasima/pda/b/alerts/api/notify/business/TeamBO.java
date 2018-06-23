@@ -30,6 +30,12 @@ public class TeamBO {
     }
 
     public Team getByMetricCode(String metricCode) {
-        return teamRepository.findByMetricCode_Code(metricCode);
+        Team team = teamRepository.findByMetricCode_Code(metricCode);
+
+        if (team == null) {
+            throw new EntityNotFoundException("Cannot find a team responsible for metric \"" + metricCode + "\"");
+        }
+
+        return team;
     }
 }

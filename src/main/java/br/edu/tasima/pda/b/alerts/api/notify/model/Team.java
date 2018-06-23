@@ -44,6 +44,6 @@ public class Team {
 
     @JsonBackReference
     @Fetch(FetchMode.SELECT)
-    @OneToMany(mappedBy = "team", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "team")
     private List<Engineer> engineers;
 }

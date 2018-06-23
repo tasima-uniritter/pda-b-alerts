@@ -1,6 +1,5 @@
 package br.edu.tasima.pda.b.alerts.api.notify.dto;
 
-import br.edu.tasima.pda.b.alerts.api.notify.model.MetricCode;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -13,7 +12,7 @@ import java.time.LocalDateTime;
  */
 @Data
 public class MetricDTO {
-    private MetricCode metricCode;
+    private String metric;
     private String origin;
     private Integer value;
     private String rule;

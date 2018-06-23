@@ -93,6 +93,9 @@ SELECT * FROM ENGINEER WHERE TEAM_ID = 1;
 SELECT * FROM ENGINEER JOIN TEAM WHERE METRIC_CODE = 'MEMORY_USAGE';
 ```
 
+
+# Endpoints Example
+
 ## MetricDTO - Received message structure
 ###### Need to confirm with other team
 ```
@@ -105,8 +108,6 @@ SELECT * FROM ENGINEER JOIN TEAM WHERE METRIC_CODE = 'MEMORY_USAGE';
   "threshold": 500
 }
 ```
-
-# Endpoints Example
 
 ```
 http://localhost:8080/api/swagger-ui.html#/
