@@ -43,8 +43,8 @@ public class Agenda {
     private Long agendaId;
 
     @JsonBackReference
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ENGINEER_ID")
+    @ManyToOne
+    @JoinColumn(name = "ENGINEER_ID", referencedColumnName = "ENGINEER_ID")
     private Engineer engineer;
 
     @NotNull

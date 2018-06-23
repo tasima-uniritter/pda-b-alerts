@@ -1,5 +1,6 @@
 package br.edu.tasima.pda.b.alerts.api.notify.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -18,6 +19,7 @@ import javax.validation.constraints.NotNull;
  */
 @Data
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name = "METRIC_CODE")
 public class MetricCode {
 

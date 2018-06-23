@@ -23,7 +23,7 @@ public class MetricCodeSerializer extends StdSerializer<MetricCode> {
     @Override
     public void serialize(MetricCode value, JsonGenerator gen, SerializerProvider arg2) throws IOException {
         gen.writeStartObject();
-        gen.writeStringField("metricCode", value.getCode());
+        gen.writeStringField("code", value.getCode());
         gen.writeEndObject();
     }
 }

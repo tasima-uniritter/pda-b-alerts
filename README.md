@@ -99,3 +99,147 @@ SELECT * FROM ENGINEER JOIN TEAM WHERE METRIC_CODE = 'MEMORY_USAGE';
   "threshold": 500
 }
 ```
+
+# Endpoints Example
+
+```
+http://localhost:8080/api/swagger-ui.html#/
+```
+
+## Engineers
+
+```
+  {
+    "email": "coutinhoRei@gmail.com",
+    "engineerAgenda": [
+      {
+        "endTime": "07:00:00",
+        "startTime": "00:00:00",
+        "weekDay": "TUESDAY"
+      },
+      {
+        "endTime": "07:00:00",
+        "startTime": "00:00:00",
+        "weekDay": "THURSDAY"
+      }
+    ],
+    "name": "Phhillippie Coutinho"
+  }
+  {
+    "email": "neymarPipoca@gmail.com",
+    "engineerAgenda": [
+      {
+        "endTime": "18:00:00",
+        "startTime": "08:00:00",
+        "weekDay": "MONDAY"
+      },
+      {
+        "endTime": "18:00:00",
+        "startTime": "08:00:00",
+        "weekDay": "WEDNESDAY"
+      },
+      {
+        "endTime": "18:00:00",
+        "startTime": "08:00:00",
+        "weekDay": "FRIDAY"
+      }
+    ],
+    "name": "Menino Ney"
+  }
+  
+  {
+    "email": "tite@gmail.com",
+    "engineerAgenda": [
+      {
+        "endTime": "17:00:00",
+        "startTime": "12:00:00",
+        "weekDay": "SATURDAY"
+      },
+      {
+        "endTime": "17:00:00",
+        "startTime": "12:00:00",
+        "weekDay": "SUNDAY"
+      }
+    ],
+    "name": "Adenor Bachi"
+  }
+```
+
+## Teams
+
+```
+{
+  "metricCode": {
+    "code": "MEMORY_USAGE"
+  },
+  "name": "Memory Usage Team"
+}
+
+{
+  "metricCode": {
+    "code": "STORAGE_LIMIT"
+  },
+  "name": "Storage Limit Team"
+}
+```
+
+## Assign Engineer to Team
+
+```
+http://localhost:8080/api/notificationStructure/engineer/assignTeam/1/1
+http://localhost:8080/api/notificationStructure/engineer/assignTeam/2/1
+http://localhost:8080/api/notificationStructure/engineer/assignTeam/3/2
+```
+
+## Metric Codes
+
+```
+{
+  "code": "TEMPERATURE_LIMIT",
+  "value": "Temperature Team"
+}
+```
+
+## Find Team by Metric Code
+
+```
+http://localhost:8080/api/notificationStructure/team/getByMetricCode/MEMORY_USAGE
+
+{
+  "teamId": 1,
+  "metricCode": {
+    "code": "MEMORY_USAGE"
+  },
+  "name": "Memory Usage Team"
+}
+```
+
+## Find Engineer by Name
+
+```
+http://localhost:8080/api/notificationStructure/engineer/getByName/Adenor%20Bachi
+
+{
+  "engineerId": 3,
+  "team": {
+    "name": "Storage Limit Team"
+  },
+  "name": "Adenor Bachi",
+  "email": "tite@gmail.com",
+  "engineerAgenda": [
+    {
+      "agendaId": 6,
+      "weekDay": "SATURDAY",
+      "startTime": "12:00:00",
+      "endTime": "17:00:00"
+    },
+    {
+      "agendaId": 7,
+      "weekDay": "SUNDAY",
+      "startTime": "12:00:00",
+      "endTime": "17:00:00"
+    }
+  ]
+}
+```
+

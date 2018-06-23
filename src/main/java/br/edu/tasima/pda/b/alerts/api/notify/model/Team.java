@@ -2,6 +2,7 @@ package br.edu.tasima.pda.b.alerts.api.notify.model;
 
 import br.edu.tasima.pda.b.alerts.api.notify.serializer.MetricCodeSerializer;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
 import org.hibernate.annotations.Fetch;
@@ -24,6 +25,7 @@ import java.util.List;
  */
 @Data
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name = "TEAM")
 public class Team {
 

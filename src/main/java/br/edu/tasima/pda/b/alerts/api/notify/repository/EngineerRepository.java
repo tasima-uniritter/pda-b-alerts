@@ -4,6 +4,8 @@ import br.edu.tasima.pda.b.alerts.api.notify.model.Engineer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * Repository about Engineer.
  *
@@ -13,4 +15,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface EngineerRepository extends JpaRepository<Engineer, Long> {
     Engineer findEngineerByNameIgnoreCase(String name);
+    List<Engineer> findAllByTeam_TeamId(Long teamId);
 }
