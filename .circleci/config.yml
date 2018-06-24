@@ -48,7 +48,6 @@ jobs:
           appname: pda-b-alerts
 
 workflows:
-  version: 2
     build_and_deploy:
       jobs:
         build:
