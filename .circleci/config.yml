@@ -41,8 +41,17 @@ jobs:
       # run tests!
       #- run: gradle test
 
-      deployment:
-        staging:
-          branch: master
-          heroku:
-            appname: pda-b-alerts
+    deployment:
+      staging:
+        branch: master
+        heroku:
+          appname: pda-b-alerts
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
