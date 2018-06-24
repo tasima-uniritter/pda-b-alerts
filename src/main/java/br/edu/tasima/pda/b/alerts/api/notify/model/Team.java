@@ -4,7 +4,10 @@ import br.edu.tasima.pda.b.alerts.api.notify.serializer.MetricCodeSerializer;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
@@ -26,7 +29,10 @@ import java.util.List;
 @Data
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@ToString(exclude = "engineers")
 @Table(name = "TEAM")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Team {
 
     @Id

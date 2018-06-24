@@ -1,7 +1,7 @@
 package br.edu.tasima.pda.b.alerts.api.notify.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -28,6 +28,7 @@ import java.time.LocalTime;
  */
 @Data
 @Entity
+@ToString(exclude = "engineer")
 @Table(
         name = "AGENDA",
         uniqueConstraints = {
@@ -42,7 +43,6 @@ public class Agenda {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long agendaId;
 
-    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "ENGINEER_ID", referencedColumnName = "ENGINEER_ID")
     private Engineer engineer;
