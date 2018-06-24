@@ -1,5 +1,6 @@
-package br.edu.tasima.pda.b.alerts.api.audit;
+package br.edu.tasima.pda.b.alerts.api.audit.repository;
 
+import br.edu.tasima.pda.b.alerts.api.audit.model.Audit;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

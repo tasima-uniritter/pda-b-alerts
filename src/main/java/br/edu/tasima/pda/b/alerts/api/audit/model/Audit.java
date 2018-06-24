@@ -1,10 +1,11 @@
-package br.edu.tasima.pda.b.alerts.api.audit;
+package br.edu.tasima.pda.b.alerts.api.audit.model;
 
 import br.edu.tasima.pda.b.alerts.api.notify.model.Team;
-import br.edu.tasima.pda.b.alerts.api.audit.enums.NotifyStatus;
+import br.edu.tasima.pda.b.alerts.api.audit.model.enums.NotifyStatus;
 import br.edu.tasima.pda.b.alerts.api.notify.model.Engineer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -27,6 +28,7 @@ import java.time.LocalDateTime;
 @Data
 @Entity
 @AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "AUDIT")
 public class Audit {
 

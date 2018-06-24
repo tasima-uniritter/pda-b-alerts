@@ -1,6 +1,6 @@
 package br.edu.tasima.pda.b.alerts.api.notify.controller;
+
 import br.edu.tasima.pda.b.alerts.api.notify.business.EngineerBO;
-import br.edu.tasima.pda.b.alerts.api.notify.model.Agenda;
 import br.edu.tasima.pda.b.alerts.api.notify.model.Engineer;
 import br.edu.tasima.pda.b.alerts.api.notify.model.Team;
 import org.junit.Before;

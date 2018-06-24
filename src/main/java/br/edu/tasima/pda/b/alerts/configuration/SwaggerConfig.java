@@ -26,6 +26,7 @@ public class SwaggerConfig {
                 .paths(PathSelectors.any())
                 .build();
     }
+
     private ApiInfo getApiInfo() {
         return new ApiInfo(
                 "Tasima - Práticas de Desenvolvimento Ágil",
