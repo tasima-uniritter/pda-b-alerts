@@ -41,7 +41,7 @@ jobs:
       # run tests!
       #- run: gradle test
 
-    deployment:
+    deploy:
       staging:
         branch: master
         heroku:
