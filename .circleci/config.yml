@@ -39,18 +39,21 @@ jobs:
           key: v1-dependencies-{{ checksum "build.gradle" }}
 
       # run tests!
-      #- run: gradle test
+      - run: gradle test
 
-  deploy:
-    staging:
-      branch: master
-      heroku:
-        appname: pda-b-alerts
+    deploy:
+      prod:
+        branch: master
+        heroku:
+          appname: pda-b-alerts
 
 workflows:
   version: 2
-   jobs:
-      - build
-   deploy:
-      requires:
-      - build
+    build_and_deploy:
+      jobs:
+        build:
+          - build
+      jobs:
+        deploy:
+          requires:
+            - build
