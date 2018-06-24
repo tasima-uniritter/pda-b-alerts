@@ -45,12 +45,6 @@ jobs:
       environment:
         - HEROKU_APP: pda-b-alerts
       steps:
-        - restore_cache:
-            key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
-        - restore_cache:
-            key: v1-bundle-{{ checksum "Gemfile.lock" }}
-        - restore_cache:
-            key: v1-assets-{{ .Environment.CIRCLE_SHA1 }}
         - run:
             name: Deploy Master to Heroku
             command: |
