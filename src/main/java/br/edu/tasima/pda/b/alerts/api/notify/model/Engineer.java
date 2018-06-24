@@ -1,6 +1,7 @@
 package br.edu.tasima.pda.b.alerts.api.notify.model;
 
 import br.edu.tasima.pda.b.alerts.api.notify.serializer.TeamSerializer;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.AllArgsConstructor;
@@ -50,6 +51,7 @@ public class Engineer {
     @Column(name = "EMAIL", unique = true)
     private String email;
 
+    @JsonBackReference
     @OneToMany(mappedBy = "engineer", cascade = CascadeType.ALL)
     private List<Agenda> engineerAgenda;
 }
