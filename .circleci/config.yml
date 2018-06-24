@@ -37,6 +37,7 @@ jobs:
           paths:
             - ~/.gradle
           key: v1-dependencies-{{ checksum "build.gradle" }}
+
   deployment:
     staging:
       branch: master
@@ -48,6 +49,6 @@ workflows:
   build_and_deploy:
     jobs:
       - build
-      - deployment:
-          requires:
-            - build
+      deployment:
+        requires:
+          - build
