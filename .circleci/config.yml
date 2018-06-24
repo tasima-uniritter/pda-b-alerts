@@ -38,16 +38,23 @@ jobs:
             - ~/.gradle
           key: v1-dependencies-{{ checksum "build.gradle" }}
 
-
   deploy:
-    docker:
-      - image: buildpack-deps:trusty
-    steps:
-      - checkout
-      - run:
-          name: Deploy Master to Heroku
-          command: |
-            git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
+      machine:
+          enabled: true
+      working_directory: ~/repo
+      environment:
+        - HEROKU_APP: pda-b-alerts
+      steps:
+        - restore_cache:
+            key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+        - restore_cache:
+            key: v1-bundle-{{ checksum "Gemfile.lock" }}
+        - restore_cache:
+            key: v1-assets-{{ .Environment.CIRCLE_SHA1 }}
+        - run:
+            name: Deploy Master to Heroku
+            command: |
+              git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP.git master
 
 workflows:
   version: 2
