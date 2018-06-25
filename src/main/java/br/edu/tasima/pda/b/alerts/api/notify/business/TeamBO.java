@@ -35,7 +35,6 @@ public class TeamBO {
         if (team == null) {
             throw new EntityNotFoundException("Cannot find a team responsible for metric \"" + metricCode + "\"");
         }
-
         return team;
     }
 }

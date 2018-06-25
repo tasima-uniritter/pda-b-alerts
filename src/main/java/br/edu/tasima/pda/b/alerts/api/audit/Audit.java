@@ -1,7 +1,6 @@
-package br.edu.tasima.pda.b.alerts.api.audit.model;
+package br.edu.tasima.pda.b.alerts.api.audit;
 
-import br.edu.tasima.pda.b.alerts.api.notify.model.Team;
-import br.edu.tasima.pda.b.alerts.api.audit.model.enums.NotifyStatus;
+import br.edu.tasima.pda.b.alerts.api.audit.enums.NotifyStatus;
 import br.edu.tasima.pda.b.alerts.api.notify.model.Engineer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,30 +18,25 @@ import java.time.LocalDateTime;
  * | AUDIT                                              |
  * | -------------------------------------------------- |
  * | AUDIT_ID PK BIGINT - e.g 22222                     |
- * | METRIC_CONTENT CLOB - e.g Metric Message in JSON   |
- * | TEAM_ID FK BIGINT - e.g 12345                      |
  * | ENGINEER_ID FK BIGINT - e.g 54321                  |
- * | TRIGGER_TIMESTAMP TIMESTAMP - e.g 1234567          |
+ * | METRIC_CONTENT CLOB - e.g Metric Message in JSON   |
+ * | TRIGGER_TIMESTAMP TIMESTAMP - e.g 1479249799770    |
  * | STATUS VARCHAR - e.g SUCCESS/FAILURE               |
+ * | MESSAGE VARCHAR - e.g ErrorMessage bla bla         |
  */
 @Data
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "AUDIT")
-public class Audit {
+class Audit {
 
     @Id
-    @SequenceGenerator(name = "SEQ_AUDIT", sequenceName = "SEQ_AUDIT", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_AUDIT")
-    private Integer auditId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long auditId;
 
     @Column(name = "METRIC_CONTENT", columnDefinition = "CLOB")
     private String metricContent;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "TEAM_ID")
-    private Team team;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ENGINEER_ID")
@@ -54,4 +48,7 @@ public class Audit {
     @Enumerated(EnumType.STRING)
     @Column(name = "STATUS")
     private NotifyStatus status;
+
+    @Column(name = "MESSAGE", columnDefinition = "CLOB")
+    private String message;
 }

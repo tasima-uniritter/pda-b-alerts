@@ -43,11 +43,12 @@ https://circleci.com/gh/tasima-uniritter/pda-b-alerts
 | AUDIT                                              |
 | -------------------------------------------------- |
 | AUDIT_ID PK BIGINT - e.g 22222                     |
-| METRIC_CONTENT CLOB - e.g Metric Message in JSON   |
-| TEAM_ID FK BIGINT - e.g 12345                      |
 | ENGINEER_ID FK BIGINT - e.g 54321                  |
-| TRIGGER_TIMESTAMP TIMESTAMP - e.g 1234567          |
+| METRIC_CONTENT CLOB - e.g Metric Message in JSON   |
+| TRIGGER_TIMESTAMP TIMESTAMP - e.g 1479249799770    |
 | STATUS VARCHAR - e.g SUCCESS/FAILURE               |
+| MESSAGE VARCHAR - e.g ErrorMessage bla bla         |
+
 
 | METRIC_CODE                                       |
 | ------------------------------------------------- |
@@ -107,7 +108,7 @@ SELECT * FROM ENGINEER JOIN TEAM WHERE METRIC_CODE = 'MEMORY_USAGE';
   "origin": "CONTAINER_1",
   "value": 550,
   "rule": ">=",
-  "timestamp": 1234567,
+  "timestamp": 1479249799770,
   "threshold": 500
 }
 ```
