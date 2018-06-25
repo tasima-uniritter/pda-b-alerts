@@ -39,9 +39,6 @@ jobs:
           key: v1-dependencies-{{ checksum "build.gradle" }}
 
   deploy:
-      docker:
-        - image: buildpack-deps:trusty
-
       machine:
           enabled: true
       working_directory: ~/repo
@@ -49,7 +46,6 @@ jobs:
             HEROKU_APP: "pda-b-alerts"
 
       steps:
-        - checkout
         - run:
             name: Deploy Master to Heroku
             command: |
