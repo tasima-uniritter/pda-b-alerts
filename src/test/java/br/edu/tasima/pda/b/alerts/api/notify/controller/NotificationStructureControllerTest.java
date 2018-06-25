@@ -2,7 +2,6 @@ package br.edu.tasima.pda.b.alerts.api.notify.controller;
 import br.edu.tasima.pda.b.alerts.api.notify.business.EngineerBO;
 import br.edu.tasima.pda.b.alerts.api.notify.business.MetricCodeBO;
 import br.edu.tasima.pda.b.alerts.api.notify.business.TeamBO;
-import br.edu.tasima.pda.b.alerts.api.notify.model.Agenda;
 import br.edu.tasima.pda.b.alerts.api.notify.model.Engineer;
 import br.edu.tasima.pda.b.alerts.api.notify.model.MetricCode;
 import br.edu.tasima.pda.b.alerts.api.notify.model.Team;
@@ -14,6 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.persistence.EntityNotFoundException;
@@ -22,11 +22,12 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.Matchers.any;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@ActiveProfiles("test")
 public class NotificationStructureControllerTest {
 
     private ArrayList<Engineer> engineerList;
@@ -302,46 +303,6 @@ public class NotificationStructureControllerTest {
         assertEquals(deleted.getBody(), returned.getBody());
 
         teamList.remove(deleted);
-    }
-
-    //***********************************************OTHERS***********************************************
-
-    @Test
-    public void assignEngineerToTeamSuccessTest(){
-        given(engineerBO.assignEngineerTeam(2L, 2L)).willReturn(engineerList.get(0));
-
-        ResponseEntity<Engineer> response = controller.assignEngineerToTeam(2L, 2L);
-        assertEquals(response.getStatusCode(), HttpStatus.OK);
-        assertEquals(response.getBody().getEngineerId().longValue(), 1L);
-        assertEquals(response.getBody().getName(), "João");
-        assertEquals(response.getBody().getEmail(), "joao@bol.com.br");
-        assertEquals(response.getBody().getTeam().getName(), "Suporte");
-    }
-
-    @Test
-    public void assignEngineerToTeamErrorTest(){
-        given(engineerBO.assignEngineerTeam(2L, 2L)).willThrow(EntityNotFoundException.class);
-
-        ResponseEntity<Engineer> response = controller.assignEngineerToTeam(2L, 2L);
-        assertEquals(response.getStatusCode(), HttpStatus.INTERNAL_SERVER_ERROR);
-    }
-
-    @Test
-    public void getEngineersByTeamSuccessTest(){
-        given(teamBO.findAll()).willReturn(teamList);
-
-        ResponseEntity<List<Team>> response = controller.getAllTeams();
-        assertEquals(response.getStatusCode(), HttpStatus.OK);
-        assertTrue(response.getBody().size() > 0);
-    }
-
-    @Test
-    public void getEngineersByTeamErrorTest(){
-        given(teamBO.findAll()).willReturn(null);
-
-        ResponseEntity<List<Team>> response = controller.getAllTeams();
-        assertEquals(response.getStatusCode(), HttpStatus.OK);
-        assertEquals(response.getBody(), null);
     }
 
 }
