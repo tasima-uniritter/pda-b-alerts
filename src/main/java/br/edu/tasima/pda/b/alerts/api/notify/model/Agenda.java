@@ -1,6 +1,8 @@
 package br.edu.tasima.pda.b.alerts.api.notify.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
@@ -37,6 +39,8 @@ import java.time.LocalTime;
                 @UniqueConstraint(columnNames = {"ENGINEER_ID", "WEEK_DAY", "START_TIME", "END_TIME"})
         }
 )
+@AllArgsConstructor
+@NoArgsConstructor
 public class Agenda {
 
     @Id
