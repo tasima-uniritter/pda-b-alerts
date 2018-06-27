@@ -1,13 +1,12 @@
 package br.edu.tasima.pda.b.alerts.api.notify.business;
 
-import br.edu.tasima.pda.b.alerts.api.audit.business.AuditBO;
-import br.edu.tasima.pda.b.alerts.api.audit.model.enums.NotifyStatus;
+import br.edu.tasima.pda.b.alerts.api.audit.AuditBO;
+import br.edu.tasima.pda.b.alerts.api.audit.enums.NotifyStatus;
 import br.edu.tasima.pda.b.alerts.api.notify.dto.MetricDTO;
 import br.edu.tasima.pda.b.alerts.api.notify.model.Agenda;
 import br.edu.tasima.pda.b.alerts.api.notify.model.Engineer;
 import br.edu.tasima.pda.b.alerts.api.notify.model.MetricCode;
 import br.edu.tasima.pda.b.alerts.api.notify.model.Team;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +15,8 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.time.temporal.TemporalAccessor;
 import java.util.ArrayList;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -38,12 +35,13 @@ public class AlertBOTest {
     @MockBean
     private AuditBO auditBO;
 
+//    TODO Refactor this method due to some changes in the code
     @Test
     public void sendAlertFromMonitorSuccessTest() throws Exception {
         MetricDTO metricDTO = new MetricDTO();
         metricDTO.setMetric("memory");
-        metricDTO.setMetricThreshold(90);
-        metricDTO.setMetricTimestamp(LocalDateTime.now());
+        metricDTO.setThreshold(90);
+        metricDTO.setTimestamp("2018-06-27T03:47:55.038Z");
         metricDTO.setOrigin("ip-origin");
         metricDTO.setRule("memory-full");
         metricDTO.setValue(90);
@@ -64,7 +62,7 @@ public class AlertBOTest {
 
 
         given(teamBO.getByMetricCode(any())).willReturn(team);
-        doNothing().when(auditBO).saveAudit(any(MetricDTO.class), any(Team.class), any(Engineer.class), NotifyStatus.SUCCESS);
+        doNothing().when(auditBO).save(any(Engineer.class), any(MetricDTO.class), NotifyStatus.SUCCESS, any(String.class));
 
         alertBO.sendAlertFromMonitor(metricDTO);
     }
