@@ -16,6 +16,8 @@ https://circleci.com/gh/tasima-uniritter/pda-b-alerts
 ## Heroku
 https://pda-b-alerts.herokuapp.com/
 
+https://pda-b-alerts.herokuapp.com/api/swagger-ui.html
+
 # Database Structure
 
  | TEAM                                          |
