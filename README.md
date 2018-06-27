@@ -108,7 +108,7 @@ SELECT * FROM ENGINEER JOIN TEAM WHERE METRIC_CODE = 'MEMORY_USAGE';
   "origin": "CONTAINER_1",
   "value": 550,
   "rule": ">=",
-  "timestamp": 1479249799770,
+  "timestamp": "2018-06-27T03:47:55.038Z",
   "threshold": 500
 }
 ```

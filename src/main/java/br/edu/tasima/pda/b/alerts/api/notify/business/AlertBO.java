@@ -69,7 +69,7 @@ public class AlertBO {
             SimpleMailMessage message = new SimpleMailMessage();
 
             message.setSubject("[TDA-B-ALERT] Container " + metricContent.getOrigin() + " needs your attention!");
-            message.setText("Dear Engineer " + engineerOnCall.getName() + " please check the following alert: " + metricContent.toString());
+            message.setText("Dear Engineer \"" + engineerOnCall.getName() + "\" from Team \"" + engineerOnCall.getTeam().getName() + "\" please check the following alert: \n\n" + metricContent.toString());
             message.setTo(engineerOnCall.getEmail());
             message.setFrom("TDA-B-ALERT@gmail.com");
 

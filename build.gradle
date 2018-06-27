@@ -1,17 +1,18 @@
 buildscript {
-	ext {
-		springBootVersion = '2.0.1.RELEASE'
-	}
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-	}
+    ext {
+        springBootVersion = '2.0.1.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
 }
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
@@ -20,23 +21,47 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
-
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-amqp')
-	compile('org.springframework.boot:spring-boot-starter-data-jpa')
-	compile('org.springframework.boot:spring-boot-starter-data-rest')
-	compile("org.springframework.boot:spring-boot-starter-mail")
-	runtime('org.springframework.boot:spring-boot-devtools')
-	compile("io.springfox:springfox-swagger2:2.7.0")
-	compile("io.springfox:springfox-swagger-ui:2.7.0")
-	compile("org.apache.camel:camel-amqp:2.21.1")
-	compile("org.apache.camel:camel-aws:2.21.1")
-	compile("org.apache.camel:camel-jackson:2.21.1")
-	compile("org.apache.camel:camel-http4:2.21.1")
-	runtime('com.h2database:h2')
-	compileOnly('org.projectlombok:lombok')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile('org.springframework.boot:spring-boot-starter-amqp')
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('org.springframework.boot:spring-boot-starter-data-rest')
+    compile("org.springframework.boot:spring-boot-starter-mail")
+    compile("io.springfox:springfox-swagger2:2.7.0")
+    compile("io.springfox:springfox-swagger-ui:2.7.0")
+    compile("org.apache.camel:camel-amqp:2.21.1")
+    compile("org.apache.camel:camel-aws:2.21.1")
+    compile("org.apache.camel:camel-jackson:2.21.1")
+    compile("org.apache.camel:camel-http4:2.21.1")
+    runtime('org.springframework.boot:spring-boot-devtools')
+    runtime('com.h2database:h2')
+    compileOnly('org.projectlombok:lombok')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+task pathingJar(type: Jar) {
+    dependsOn configurations.runtime
+    appendix = 'pathing'
+
+    doFirst {
+        manifest {
+            // Build the Class-Path for absolute paths based on runtime dependencies.
+            attributes "Class-Path": configurations.runtime.files.collect {
+                it.toURI().toString().replaceFirst(/file:\/+/, '/')
+            }.join(' ')
+        }
+    }
+}
+bootRun {
+    dependsOn pathingJar
+    doFirst {
+        classpath = files("$buildDir/classes/java/main", "$buildDir/resources/main", pathingJar.archivePath)
+    }
+}
+processResources {
+    filesMatching('application.properties') {
+        expand(project.properties)
+    }
 }

@@ -3,8 +3,6 @@ package br.edu.tasima.pda.b.alerts.api.notify.dto;
 import br.edu.tasima.pda.b.alerts.helper.JsonConverter;
 import lombok.Data;
 
-import java.time.LocalDateTime;
-
 /**
  * MetricDTO received as a message.
  *
@@ -17,8 +15,8 @@ public class MetricDTO {
     private String origin;
     private Integer value;
     private String rule;
-    private LocalDateTime metricTimestamp;
-    private Integer metricThreshold;
+    private String timestamp;
+    private Integer threshold;
 
     @Override
     public String toString() {
