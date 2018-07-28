@@ -18,7 +18,7 @@ public class RouteAws extends SpringRouteBuilder {
         from("amqp:queue:b-monitor-alerts")
                 .setHeader(Exchange.CONTENT_TYPE, constant("application/json"))
                 .setHeader(Exchange.HTTP_METHOD, constant(org.apache.camel.component.http4.HttpMethods.POST))
-                .to("http4://localhost:8080/api/alert/sendAlert")
+                .to("http4://pda-b-alerts-prod.herokuapp.com/api/alert/sendAlert")
                 .log("Content ${body}");
     }
 }
